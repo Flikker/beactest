@@ -1,14 +1,5 @@
 var logToDom = function (message) {
-    var e = document.createElement('label');
-    e.innerText = message;
-
-    var br = document.createElement('br');
-    var br2 = document.createElement('br');
-    document.body.appendChild(e);
-    document.body.appendChild(br);
-    document.body.appendChild(br2);
-
-    window.scrollTo(0, window.document.height);
+    document.getElementById("deviceready").innerHTML = "Paragraph changed!";
 };
 
 var delegate = new cordova.plugins.locationManager.Delegate();
@@ -46,3 +37,5 @@ cordova.plugins.locationManager.requestWhenInUseAuthorization();
 cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
     .fail(function(e) { console.error(e); })
     .done();
+
+logToDom();
